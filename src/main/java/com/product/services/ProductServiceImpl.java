@@ -12,22 +12,26 @@ public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
 
-    private Product create(Product product) {
+    public Product create(Product product) {
         return productRepository.saveAndFlush(product);
     }
 
-    private void update(Long id, Product product) {
+    public void update(Long id, Product product) {
         Optional<Product> productOptional = productRepository.findById(id);
         productOptional.ifPresentOrElse(product1 -> productRepository.saveAndFlush(product),
                 productOptional::get);
     }
 
-    private List<Product> findAll() {
+    public List<Product> findAll() {
         return productRepository.findAll();
     }
 
-    private Product findById(Long id) {
+    public Product findById(Long id) {
         Optional<Product> productOptional = productRepository.findById(id);
             return productOptional.get();
+    }
+
+    public void delete(Long id) {
+        productRepository.deleteById(id);
     }
 }
