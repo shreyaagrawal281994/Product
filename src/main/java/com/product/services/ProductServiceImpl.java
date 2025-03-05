@@ -3,10 +3,12 @@ package com.product.services;
 import com.product.entities.Product;
 import com.product.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
